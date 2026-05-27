@@ -41,8 +41,21 @@ function updateColor(val) {
 // 4. Lấy dữ liệu từ content.js và render danh sách
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (tabs.length === 0) return;
-    chrome.tabs.sendMessage(tabs[0].id, { action: "getFoundIdioms" }, function (response) {
-        if (chrome.runtime.lastError || !response || !response.idioms) return;
+    
+    // Kiểm tra tab có hợp lệ không (không phải chrome://, about://, etc.)
+    const tab = tabs[0];
+    if (!tab.url || !tab.url.startsWith('http')) {
+        idiomList.innerHTML = '<li class="empty-msg">Không hỗ trợ trang này</li>';
+        return;
+    }
+
+    chrome.tabs.sendMessage(tab.id, { action: "getFoundIdioms" }, function (response) {
+        // Bắt lỗi connection (content.js chưa inject)
+        if (chrome.runtime.lastError) {
+            idiomList.innerHTML = '<li class="empty-msg">Đang tải trang, thử lại sau...</li>';
+            return;
+        }
+        if (!response || !response.idioms) return;
 
         if (response.idioms.length > 0) {
             idiomList.innerHTML = "";
