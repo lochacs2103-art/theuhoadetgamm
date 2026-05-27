@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+    <div class="container">
+        <h3>🪷 Dệt Gấm Thêu Hoa</h3>
+        <p>Gió cũng thật dịu dàng</p>
+        
+        <div class="setting-row">
+            <label for="toggleBtn">Trạng thái hoạt động:</label>
+            <label class="switch">
+              <input type="checkbox" id="toggleBtn" checked>
+              <span class="slider-toggle round"></span>
+            </label>
+        </div>
+
+        <hr style="border: 0.5px solid #dfe6e9; margin: 10px 0;">
+        
+        <label for="freqSlider">Tần suất gợi ý:</label>
+        <input type="range" id="freqSlider" min="1" max="3" value="2">
+        <p>Mức độ: <span id="freqLabel" style="font-weight: bold; color: #00b894;">Vừa phải</span></p>
+
+        <hr style="border: 0.5px solid #dfe6e9; margin: 10px 0;">
+
+        <h4 style="margin: 5px 0; color: #2d3436; text-align: left;">📝 Các câu đã tìm thấy:</h4>
+        <div class="list-container">
+            <ul id="idiomList" class="idiom-list">
+                <li class="empty-msg">Đang quét hoặc chưa tìm thấy...</li>
+            </ul>
+        </div>
+    </div>
+    <script src="./popup.js"></script>
+</body>
+</html>

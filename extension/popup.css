@@ -1,0 +1,40 @@
+body { width: 280px; padding: 10px; font-family: 'Segoe UI', sans-serif; text-align: center; }
+h3 { margin: 0; color: #2d3436; }
+p { font-size: 13px; color: #636e72; margin: 5px 0; }
+.container { border: 1px solid #dfe6e9; padding: 15px; border-radius: 8px; background: #f9f9f9; }
+
+/* Thanh trượt */
+input[type=range] { width: 100%; margin: 10px 0; }
+
+/* Dòng Bật/Tắt */
+.setting-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 14px; font-weight: bold; color: #2d3436; }
+
+/* Nút gạt */
+.switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider-toggle { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+.slider-toggle:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider-toggle { background-color: #00b894; }
+input:checked + .slider-toggle:before { transform: translateX(20px); }
+
+/* Danh sách */
+.list-container { max-height: 180px; overflow-y: auto; text-align: left; background: white; border: 1px solid #dfe6e9; border-radius: 6px; padding: 5px; }
+.idiom-list { list-style-type: none; padding: 0; margin: 0; font-size: 12px; }
+.idiom-list li { padding: 8px; border-bottom: 1px dashed #dfe6e9; }
+.idiom-list li:last-child { border-bottom: none; }
+.idiom-list strong { color: #d63031; display: block; margin-bottom: 2px; }
+.phrase-text { color: #636e72; display: block; margin-bottom: 4px; }
+.empty-msg { color: #b2bec3; text-align: center; font-style: italic; }
+
+/* Tính từ đi kèm thành ngữ */
+.adj-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.adj-tag {
+    background: #e8f8f5;
+    color: #00b894;
+    border: 1px solid #b2dfdb;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: help;
+}
