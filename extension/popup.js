@@ -26,7 +26,7 @@ toggleBtn.addEventListener('change', (e) => {
     const isTurnedOn = e.target.checked;
     chrome.storage.sync.set({ dgEnabled: isTurnedOn });
     if (isTurnedOn) {
-        fetch("http://localhost:5000/")
+        fetch("https://api-detgamtheuhoa.onrender.com/")
             .then(() => console.log("🌅 Server local sẵn sàng!"))
             .catch(err => console.log("Lỗi gọi server:", err));
     }
